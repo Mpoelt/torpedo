@@ -16,7 +16,7 @@ import org.springframework.context.ApplicationContext;
 public class TorpedoApp {
     public static void main(String[] args) {
        final ApplicationContext context = SpringApplication.run(TorpedoApp.class, args);
-       final MapInit mapInit = context.getBean(MapInitDeciderService.class).gatMapInitInstance(context);
+       final MapInit mapInit = context.getBean(MapInitDeciderService.class).getMapInitInstance();
        final GameMap gameMap = mapInit.readMapDetails();
        final Player player = context.getBean(PlayerInit.class).readPlayerDetails();
        context.getBean(GameService.class).startGame(new TorpedoGame(gameMap, player));
