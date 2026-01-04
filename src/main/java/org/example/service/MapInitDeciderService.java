@@ -3,10 +3,14 @@ package org.example.service;
 import org.example.init.ConsoleMapInit;
 import org.example.init.FileMapInit;
 import org.example.init.MapInit;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class MapInitDeciderService {
 
-    private final ConsoleService consoleService;
+    @Autowired
+    private ConsoleService consoleService;
 
     public MapInitDeciderService(final ConsoleService consoleService) {
         this.consoleService = consoleService;

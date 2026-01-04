@@ -4,9 +4,11 @@ import org.example.domain.RocketDestination;
 import org.example.domain.Ship;
 import org.example.domain.GameMap;
 import org.example.service.ConsoleService;
+import org.springframework.stereotype.Component;
 
 import java.util.Set;
 
+@Component
 public class MapDisplayer {
 
     private final ConsoleService consoleService;

@@ -2,16 +2,17 @@ package org.example.service;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
 
 import java.util.Scanner;
 
-
+@Service
 public class ConsoleService {
     private static final Logger LOGGER = LoggerFactory.getLogger(ConsoleService.class);
     private final Scanner scanner;
 
-    public ConsoleService(Scanner scanner) {
-        this.scanner = scanner;
+    public ConsoleService() {
+        this.scanner = new Scanner(System.in);
     }
 
     public int readIntFromConsole(String message){

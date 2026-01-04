@@ -2,7 +2,9 @@ package org.example.service;
 
 import org.example.display.MapDisplayer;
 import org.example.domain.*;
+import org.springframework.stereotype.Service;
 
+@Service
 public class GameService {
 
 

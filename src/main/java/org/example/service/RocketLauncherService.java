@@ -3,7 +3,10 @@ package org.example.service;
 import org.example.domain.GameMap;
 import org.example.domain.Ship;
 import org.example.domain.RocketDestination;
+import org.springframework.stereotype.Service;
 
+
+@Service
 public class RocketLauncherService {
     private  final ConsoleService consoleService;
 

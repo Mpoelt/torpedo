@@ -17,8 +17,6 @@
     <junit.version>5.13.4</junit.version>
     <mockito-junit.version>5.20.0</mockito-junit.version>
     <maven-checkstyle.version>3.6.0</maven-checkstyle.version>
-    <slf4j.version>2.0.9</slf4j.version>
-    <logback.version>1.5.13</logback.version>
     <lombok.version>1.18.42</lombok.version>
   </properties>
 
@@ -36,18 +34,7 @@
       <version>${lombok.version}</version>
     </dependency>
 
-    <!-- Logging via SLF4J API -->
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-api</artifactId>
-      <version>${slf4j.version}</version>
-    </dependency>
-    <!-- Logback - SLF4J implementation -->
-    <dependency>
-      <groupId>ch.qos.logback</groupId>
-      <artifactId>logback-classic</artifactId>
-      <version>${logback.version}</version>
-    </dependency>
+
     <!-- Test dependencies -->
     <dependency>
       <groupId>org.junit.jupiter</groupId>

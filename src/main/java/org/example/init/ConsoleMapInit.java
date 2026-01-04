@@ -4,8 +4,9 @@ import org.example.domain.Ship;
 import org.example.domain.GameMap;
 import org.example.service.ConsoleService;
 
+
 public class ConsoleMapInit implements MapInit{
-    private ConsoleService consoleService;
+    private final ConsoleService consoleService;
 
     public ConsoleMapInit(final ConsoleService consoleService) {
         this.consoleService = consoleService;
