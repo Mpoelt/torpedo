@@ -2,13 +2,13 @@ package org.example.init;
 
 import org.example.domain.GameMap;
 import org.example.domain.Ship;
+import org.springframework.stereotype.Component;
 
-import javax.xml.crypto.dsig.SignatureProperties;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 
+@Component
 public class FileMapInit implements MapInit {
     private final static String FILE_NAME = "map.txt";
 

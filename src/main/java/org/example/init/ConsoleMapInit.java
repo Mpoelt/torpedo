@@ -3,8 +3,9 @@ package org.example.init;
 import org.example.domain.Ship;
 import org.example.domain.GameMap;
 import org.example.service.ConsoleService;
+import org.springframework.stereotype.Service;
 
-
+@Service
 public class ConsoleMapInit implements MapInit{
     private final ConsoleService consoleService;
 
