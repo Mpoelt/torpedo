@@ -7,7 +7,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface HighScoreRepository extends JpaRepository<HighScore, Long> {
-
         HighScore findByPlayerName(String playerName);
 
 }
