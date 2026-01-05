@@ -1,0 +1,26 @@
+package org.example.service;
+
+import lombok.AllArgsConstructor;
+import org.example.database.entity.HighScore;
+import org.example.database.repository.HighScoreRepository;
+import org.springframework.stereotype.Service;
+
+@Service
+@AllArgsConstructor
+public class HighScoreService {
+
+    private final ConsoleService consoleService;
+    private final HighScoreRepository highScoreRepository;
+
+    public HighScore findByPlayerNameOrCreate(String playerName){
+        HighScore highScore = highScoreRepository.findByPlayerName(playerName);
+        if (highScore == null){
+            highScore = highScoreRepository.save(new HighScore(playerName, 0));
+
+        }
+        consoleService.print("Hi " + playerName + ", your high score is " + highScore.getGamesWon());
+
+        return highScore;
+    }
+
+}
