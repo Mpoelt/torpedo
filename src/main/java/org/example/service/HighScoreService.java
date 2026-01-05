@@ -23,4 +23,7 @@ public class HighScoreService {
         return highScore;
     }
 
+    public HighScore save(HighScore highScore){
+        return highScoreRepository.save(highScore);
+        }
 }

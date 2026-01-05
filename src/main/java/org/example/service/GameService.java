@@ -1,5 +1,6 @@
 package org.example.service;
 
+import org.example.database.entity.HighScore;
 import org.example.display.MapDisplayer;
 import org.example.domain.*;
 import org.springframework.stereotype.Service;
@@ -29,7 +30,7 @@ public class GameService {
         final GameMap gameMap = torpedoGame.getGameMap();
         final Ship ship = gameMap.getShip();
         //mentünk új játékost ha nem létezik
-        highScoreService.findByPlayerNameOrCreate(player.getName());
+        final HighScore highScore = highScoreService.findByPlayerNameOrCreate(player.getName());
         consoleService.printWithPlayerName("Hi {}, the game has been started, this is yout map: ", player.getName());
         while (!deciderService.isFinished(ship)) {
             //Kérjük map-et
@@ -44,7 +45,9 @@ public class GameService {
                 consoleService.print("Missed!");
             }
         }
-        //felülírjuk a HighScore todo
+        //felülírjuk a HighScore
+        highScore.setGamesWon(highScore.getGamesWon() + 1);
+        highScoreService.save(highScore);
         mapDisplayer.displayMap(gameMap);
         consoleService.printWithPlayerName("Congratulation {}, there is no more ship on the map", player.getName());
     }
