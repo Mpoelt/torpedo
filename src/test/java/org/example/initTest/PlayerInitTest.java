@@ -2,45 +2,38 @@ package org.example.initTest;
 
 import org.example.domain.Player;
 import org.example.init.PlayerInit;
+import org.example.service.ConsoleService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.util.Scanner;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.verify;
+import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 public class PlayerInitTest {
-
     @Mock
-    private Scanner scannerMock;
+    private ConsoleService consoleServiceMock;
 
     private PlayerInit underTest;
 
     @BeforeEach
-    public void setUp(){
-    underTest = new PlayerInit(scannerMock);
+    public void setup(){
+        underTest = new PlayerInit(consoleServiceMock);
     }
 
     @Test
-    public void readPlayerDetailsReturnsPlayerWithNameFromScanner(){
-        //GIVEN
-        when(scannerMock.next()).thenReturn("Peter");
+    public void readPlayerDetailsShouldReturnPlayer(){
+        // GIVEN
+        final String expectedPlayerName = "alma";
+        when(consoleServiceMock.readStringFromConsole(anyString())).thenReturn(expectedPlayerName);
         //WHEN
-        Player player = underTest.readPlayerDetails();
+        final Player actualPlayer = underTest.readPlayerDetails();
         //THEN
-        assertEquals("Peter", player.getName());
-        verify(scannerMock).next();
-
+        assertEquals(expectedPlayerName, actualPlayer.getName());
 
     }
-
-
-
-
 }
